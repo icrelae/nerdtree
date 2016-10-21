@@ -1,6 +1,10 @@
 The NERDTree
 =============
 
+Note: I've do some tricks to make NERD Tree integrate with winmanager. See also
+winmanager of my repo. Just install them following the README. Not suitable for
+using them separately!
+
 Introduction
 ------------
 
