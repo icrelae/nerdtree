@@ -222,7 +222,12 @@ function! NERDTreeCWD()
     endif
 
     try
-        let l:cwdPath = g:NERDTreePath.New(getcwd())
+        "let l:cwdPath = g:NERDTreePath.New(getcwd())
+        let l:nerdtreeWinnr = winnr()
+        exec "wincmd h"
+        let l:cwdPath = expand("%:p:h")
+        exec l:nerdtreeWinnr." wincmd w"
+        let l:cwdPath = g:NERDTreePath.New(l:cwdPath)
     catch /^NERDTree.InvalidArgumentsError/
         call nerdtree#echoWarning('current directory does not exist')
         return
@@ -245,6 +250,15 @@ endfunction
 
 " SECTION: Post Source Actions {{{1
 call nerdtree#postSourceActions()
+
+"Used by winmanager {{{1
+let g:NERDTree_title = "[NERDTree]"
+function! NERDTree_Start()
+    exec 'NERDTreeToggle'
+endfunction
+function! NERDTree_IsValid()
+    return 1
+endfunction
 
 "reset &cpo back to users setting
 let &cpo = s:old_cpo

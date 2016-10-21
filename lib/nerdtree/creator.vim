@@ -184,11 +184,11 @@ function! s:Creator._createTreeWin()
 
     if !g:NERDTree.ExistsForTab()
         let t:NERDTreeBufName = self._nextBufferName()
-        silent! execute l:splitLocation . 'vertical ' . l:splitSize . ' new'
+        "silent! execute l:splitLocation . 'vertical ' . l:splitSize . ' new'
         silent! execute 'edit ' . t:NERDTreeBufName
         silent! execute 'vertical resize '. l:splitSize
     else
-        silent! execute l:splitLocation . 'vertical ' . l:splitSize . ' split'
+        "silent! execute l:splitLocation . 'vertical ' . l:splitSize . ' split'
         silent! execute 'buffer ' . t:NERDTreeBufName
     endif
 
